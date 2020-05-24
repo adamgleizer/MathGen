@@ -21,6 +21,13 @@ export class Problem {
         this.result = this.compute(firstOperand, secondOperand, operation)
     }
 
+    equals(other: Problem) {
+        if (other.expressionEquals === this.expressionEquals && other.result === this.result) {
+            return true;
+        }
+        return false;
+    }
+
     private compute = (num1: number, num2: number, op: Operation) => {
         var result: number;
         switch (op) {
