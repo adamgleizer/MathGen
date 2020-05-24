@@ -20,7 +20,7 @@ class App extends React.Component<Props, State> {
     var showAnswers: boolean = false
     var problems : Array<Problem> = []
 
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 20; i++) {
       var problem: Problem
       do {
         problem = ProblemGenerator("+")
