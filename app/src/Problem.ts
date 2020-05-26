@@ -17,7 +17,7 @@ export class Problem {
     constructor(firstOperand: number, secondOperand: number, operation: Operation) {
         this.firstOperand = firstOperand
         this.secondOperand = secondOperand;
-        this.expressionEquals = `${firstOperand}+${secondOperand}=`;
+        this.expressionEquals = `${firstOperand}${operation}${secondOperand}=`;
         this.result = this.compute(firstOperand, secondOperand, operation)
     }
 

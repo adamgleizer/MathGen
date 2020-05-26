@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProblemGenerator, Problem } from './Problem';
+import { ProblemGenerator, Problem, Operation } from './Problem';
 import './App.css';
 import AnswerField from './AnswerField'
 import Grid from '@material-ui/core/Grid';
@@ -12,7 +12,7 @@ type State = {
   showAnswers: boolean
 }
 
-type Props = {}
+type Props = {operation: Operation}
 
 class App extends React.Component<Props, State> {
 
@@ -24,7 +24,7 @@ class App extends React.Component<Props, State> {
     for (var i = 0; i < 20; i++) {
       var problem: Problem
       do {
-        problem = ProblemGenerator("+")
+        problem = ProblemGenerator(this.props.operation)
       } while (problems.some(existingProblem => existingProblem.equals(problem)))
       problems.push(problem)
     }
