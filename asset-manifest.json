@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/MathGen/static/css/main.5f361e03.chunk.css",
-    "main.js": "/MathGen/static/js/main.5e4a1ac4.chunk.js",
-    "main.js.map": "/MathGen/static/js/main.5e4a1ac4.chunk.js.map",
+    "main.js": "/MathGen/static/js/main.43797b73.chunk.js",
+    "main.js.map": "/MathGen/static/js/main.43797b73.chunk.js.map",
     "runtime-main.js": "/MathGen/static/js/runtime-main.0e65fb0e.js",
     "runtime-main.js.map": "/MathGen/static/js/runtime-main.0e65fb0e.js.map",
-    "static/js/2.fe874579.chunk.js": "/MathGen/static/js/2.fe874579.chunk.js",
-    "static/js/2.fe874579.chunk.js.map": "/MathGen/static/js/2.fe874579.chunk.js.map",
+    "static/js/2.b70e1637.chunk.js": "/MathGen/static/js/2.b70e1637.chunk.js",
+    "static/js/2.b70e1637.chunk.js.map": "/MathGen/static/js/2.b70e1637.chunk.js.map",
     "index.html": "/MathGen/index.html",
-    "precache-manifest.4fde14590ea9f47cda581a790c5fb592.js": "/MathGen/precache-manifest.4fde14590ea9f47cda581a790c5fb592.js",
+    "precache-manifest.182543df3466dc77dac3ea7fcab64876.js": "/MathGen/precache-manifest.182543df3466dc77dac3ea7fcab64876.js",
     "service-worker.js": "/MathGen/service-worker.js",
     "static/css/main.5f361e03.chunk.css.map": "/MathGen/static/css/main.5f361e03.chunk.css.map",
-    "static/js/2.fe874579.chunk.js.LICENSE.txt": "/MathGen/static/js/2.fe874579.chunk.js.LICENSE.txt"
+    "static/js/2.b70e1637.chunk.js.LICENSE.txt": "/MathGen/static/js/2.b70e1637.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.0e65fb0e.js",
-    "static/js/2.fe874579.chunk.js",
+    "static/js/2.b70e1637.chunk.js",
     "static/css/main.5f361e03.chunk.css",
-    "static/js/main.5e4a1ac4.chunk.js"
+    "static/js/main.43797b73.chunk.js"
   ]
 }
