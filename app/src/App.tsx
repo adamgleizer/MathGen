@@ -1,10 +1,11 @@
 import React from 'react';
-import {ProblemGenerator, Problem} from './Problem';
+import { ProblemGenerator, Problem } from './Problem';
 import './App.css';
-import TextField from '@material-ui/core/TextField';
+import AnswerField from './AnswerField'
 import Grid from '@material-ui/core/Grid';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
+import Box from '@material-ui/core/Box';
 
 type State = {
   problems: Array<Problem>,
@@ -18,7 +19,7 @@ class App extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props)
     var showAnswers: boolean = false
-    var problems : Array<Problem> = []
+    var problems: Array<Problem> = []
 
     for (var i = 0; i < 20; i++) {
       var problem: Problem
@@ -28,7 +29,7 @@ class App extends React.Component<Props, State> {
       problems.push(problem)
     }
 
-    this.state = {problems: problems, showAnswers: showAnswers}
+    this.state = { problems: problems, showAnswers: showAnswers }
 
     // This binding is necessary to make `this` work in the callback    
     this.toggleAnswers = this.toggleAnswers.bind(this);
@@ -57,35 +58,26 @@ class App extends React.Component<Props, State> {
         <ol>
           {this.state.problems.map(problem => (
             <li key={`${problem.firstOperand}${problem.secondOperand}`}>
-              <Grid container justify="flex-start" alignItems="center" spacing={1}>
-                <Grid item>
-                  {problem.expressionEquals}
+              <Box width={290}>
+                <Grid container justify="space-between" alignItems="center" spacing={0}>
+                  <Grid item>
+                    {problem.expressionEquals}
+                  </Grid>
+                  <Grid item>
+                    <AnswerField
+                      answer={problem.result}
+                      showAnswer={this.state.showAnswers} 
+                      />
+                  </Grid>
                 </Grid>
-                <Grid item xs={1}>
-                  <AnswerField 
-                    answer={this.state.showAnswers ? problem.result : ""}
-                  />
-                </Grid>
-              </Grid>
+              </Box>
+
             </li>
           ))}
         </ol>
       </React.Fragment>
     )
   }
-}
-
-function AnswerField(props: {answer: number | string}) {
-
-  return (
-    <form>
-      <TextField
-        id="standard-basic"
-        value={props.answer}
-      >
-      </TextField>
-    </form>
-  )
 }
 
 export default App;
