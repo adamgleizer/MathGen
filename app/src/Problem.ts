@@ -1,10 +1,14 @@
 
-export type Operation = "+" | "-" | "×" | "÷"
+export type Operation = "+" | "-" | "×" | "÷" | "- nonNegative"
 
 
 export function ProblemGenerator(operation: Operation): Problem {
-    const num1 = Math.floor((Math.random() * 10) + 1);
-    const num2 = Math.floor((Math.random() * 10) + 1);
+    var upperBound: number = 10;
+    const num1 = Math.floor((Math.random() * upperBound) + 1);
+    if (operation === "- nonNegative") {
+        upperBound = num1;
+    }
+    const num2 = Math.floor((Math.random() * upperBound) + 1);
     return new Problem(num1, num2, operation);
 }
 
@@ -17,7 +21,9 @@ export class Problem {
     constructor(firstOperand: number, secondOperand: number, operation: Operation) {
         this.firstOperand = firstOperand
         this.secondOperand = secondOperand;
-        this.expressionEquals = `${firstOperand}${operation}${secondOperand}=`;
+        var printedOperation : Operation = operation === "- nonNegative" ? "-" : operation
+
+        this.expressionEquals = `${firstOperand}${printedOperation}${secondOperand}=`;
         this.result = this.compute(firstOperand, secondOperand, operation)
     }
 
@@ -35,7 +41,11 @@ export class Problem {
                 result = num1 + num2
                 break
             }
-            case "-": {
+            case "-" : {
+                result = num1 - num2
+                break
+            }
+            case "- nonNegative" : {
                 result = num1 - num2
                 break
             }
