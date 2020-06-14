@@ -1,7 +1,8 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
+import {compoundNumber} from './Problem'
 
-export default function AnswerField(props: {answer: number, showAnswer: boolean}) {
+export default function AnswerField(props: {answer: compoundNumber, showAnswer: boolean}) {
     if (props.showAnswer) {
         return (
             <DisplayAnswerField answer={props.answer} />
@@ -13,19 +14,26 @@ export default function AnswerField(props: {answer: number, showAnswer: boolean}
     }
 }
 
-function DisplayAnswerField(props: {answer: number} ) {
-    return (
-        <form>
-        <TextField
-            id="standard-basic"
-            value={props.answer}
-        >
-        </TextField>
-        </form>
-    )
+function DisplayAnswerField(props: {answer: compoundNumber} ) {
+  var answer;
+  if (props.answer.remainder != null) {
+    answer = `${props.answer.whole} rem: ${props.answer.remainder}`
+  }
+  else {
+    answer = props.answer.whole;
+  }
+  return (
+      <form>
+      <TextField
+          id="standard-basic"
+          value={answer}
+      >
+      </TextField>
+      </form>
+  )
 }
 
-type Props = { answer: number }
+type Props = { answer: compoundNumber }
 type State = { currentVal: string, correct: boolean }
 
 class InputAnswerField extends React.Component<Props

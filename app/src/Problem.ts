@@ -1,6 +1,11 @@
 
 export type Operation = "+" | "-" | "×" | "÷" | "- nonNegative"
 
+export type compoundNumber = {
+    whole: number,
+    remainder: number | null
+}
+
 
 export function ProblemGenerator(operation: Operation): Problem {
     var upperBound: number = 10;
@@ -16,7 +21,7 @@ export class Problem {
     readonly firstOperand: number;
     readonly secondOperand: number;
     readonly expressionEquals: string;
-    readonly result: number;
+    readonly result: compoundNumber;
 
     constructor(firstOperand: number, secondOperand: number, operation: Operation) {
         this.firstOperand = firstOperand
@@ -28,33 +33,34 @@ export class Problem {
     }
 
     equals(other: Problem) {
-        if (other.expressionEquals === this.expressionEquals && other.result === this.result) {
+        if (other.expressionEquals === this.expressionEquals && other.firstOperand === this.firstOperand
+                                                             && other.secondOperand === this.secondOperand) {
             return true;
         }
         return false;
     }
 
     private compute = (num1: number, num2: number, op: Operation) => {
-        var result: number;
+        var result: compoundNumber;
         switch (op) {
             case "+": {
-                result = num1 + num2
+                result = {whole: num1 + num2, remainder: null}
                 break
             }
             case "-" : {
-                result = num1 - num2
+                result = {whole: num1 - num2, remainder: null}
                 break
             }
             case "- nonNegative" : {
-                result = num1 - num2
+                result = {whole: num1 - num2, remainder: null}
                 break
             }
             case "×": {
-                result = num1 * num2
+                result = {whole: num1 * num2, remainder: null}
                 break
             }
             case "÷": {
-                result = num1 / num2 // make sure to handle div by zero
+                result = {whole: ~~(num1 / num2), remainder: num1 % num2}
                 break
             }
         }
